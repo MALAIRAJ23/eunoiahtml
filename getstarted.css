@@ -1,0 +1,77 @@
+body {
+    background-color: #f6f7ec; /* Light background color for outside the form */
+    margin: 0;
+    font-family: Arial, sans-serif; /* General font */
+  }
+  
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Center the login form vertically */
+    padding: 20px;
+  }
+  
+  .login-form {
+    background: #92759c; /* Form background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    padding: 20px; /* Padding inside the form */
+    max-width: 400px; /* Set a maximum width for the form */
+    width: 100%; /* Ensure it scales with the screen */
+  }
+  
+  .login-form h2 {
+    color: #512260; /* Heading text color */
+    font-family: 'Frunchy sage', serif; /* Custom font for the heading */
+    margin-bottom: 20px; /* Space below the heading */
+  }
+  
+  .form-group {
+    margin-bottom: 20px; /* Space between form elements */
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px; /* Space between label and input */
+    color: #512260; /* Label text color */
+    font-family: 'Frunchy sage', serif; /* Custom font for labels */
+  }
+  
+  .form-group input {
+    width: 100%; /* Full width input fields */
+    padding: 12px; /* Padding inside input fields */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Slightly rounded input borders */
+    box-sizing: border-box; /* Ensure padding doesn’t affect total width */
+  }
+  
+  button {
+    background-color: #512260; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    padding: 12px 20px; /* Button padding */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Hand cursor on hover */
+    font-size: 16px; /* Button text size */
+    display: block; /* Button as a block element */
+    width: 100%; /* Full width button */
+  }
+  
+  button:hover {
+    background-color: #3d1e5d; /* Darker color on hover */
+  }
+  
+  .links {
+    text-align: center; /* Center the links */
+    margin-top: 15px; /* Space above links */
+  }
+  
+  .links a {
+    text-decoration: none; /* Remove underline from links */
+    color: #007bff; /* Link color */
+    margin: 5px 0; /* Space between the links */
+    display: block; /* Ensure links are displayed in a block layout */
+  }
+  

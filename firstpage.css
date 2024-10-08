@@ -1,0 +1,45 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #a48da6; /* Background color */
+  }
+  
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .button {
+    background-color: transparent; /* Ensure background is transparent */
+    border: none; /* Remove any border */
+    padding: 0; /* Remove padding */
+    cursor: pointer; /* Pointer cursor */
+    transition: transform 0.3s; /* Smooth transition for scale */
+  }
+  
+  .button img {
+    margin-top: 20px; /* Space between main image and button */
+    width: 150px; /* Set button image width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure the image behaves like a block element */
+  }
+  
+  .button:hover img {
+    transform: scale(1.1); /* Scale up on hover */
+  }
+  
+  .button.active img {
+    transform: scale(1.2); /* Enlarge when clicked */
+  }
+  
