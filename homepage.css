@@ -4,34 +4,8 @@ body {
     padding: 0;
 }
 
-<<<<<<< HEAD
-.navbar {
-    align-items: start;
-}
-
-.button:hover .button1{
-    background-color: aqua;
-}
-
-.button:hover .button2{
-    background-color: aqua;
-}
-
-.button:hover .button3{
-    background-color: aqua;
-}
-
-.button:hover .button4{
-    background-color: aqua;
-}
-
-.button:hover .button5{
-    background-color: aqua;
-    transition: background-color 0.3s;
-}
-=======
 .Nav-bar {
-    background-color: #007bff; /* Change this color as needed */
+    background-color: #a48da6; /* Change this color as needed */
     padding: 10px;
 }
 
@@ -54,4 +28,3 @@ button {
 button:hover {
     background-color: #e7e7e7; /* Light gray on hover */
 }
->>>>>>> 4e6693708523ffde20e3fa92127f28973b0b34e1
