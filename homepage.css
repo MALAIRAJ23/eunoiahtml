@@ -1,10 +1,30 @@
 body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #a48da6; /* Background color */
 }
 
+.Nav-bar {
+    background-color: #007bff; /* Change this color as needed */
+    padding: 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around; /* Space buttons evenly */
+}
+
+button {
+    background-color: white;
+    border: none;
+    color: #007bff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #e7e7e7; /* Light gray on hover */
+}
