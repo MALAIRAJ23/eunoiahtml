@@ -2,7 +2,7 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #a48da6; /* Background color */
+    background-color: #e0f7fa; /* Background color */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@ body, html {
 /* Heading styles */
 h1 {
     font-size: 36px;
-    color: #a48da6; /* Matches the theme color */
+    color: lightgreen; /* Matches the theme color */
     margin-bottom: 20px;
 }
 

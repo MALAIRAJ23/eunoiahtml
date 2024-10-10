@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engage - Yoga & Meditation Recommendations</title>
+    <link rel="stylesheet" href="engage.css">
+    <script>
+        // Function to update recommended videos based on the selected category
+        function showRecommendations() {
+            const category = document.getElementById("category").value;
+            const videoSection = document.getElementById("video-section");
+            const bookSection = document.getElementById("book-section");
+            const playlistSection = document.getElementById("playlist-section");
+
+            // Reset sections
+            videoSection.innerHTML = '';
+            bookSection.innerHTML = '';
+            playlistSection.innerHTML = '';
+
+            if (category === 'yoga') {
+                videoSection.innerHTML = `
+                    <h2>Recommended Yoga Videos</h2>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/v7AYKMP6rOE" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/sTANio_2E0Q" frameborder="0" allowfullscreen></iframe>
+                `;
+                bookSection.innerHTML = `
+                    <h2>Yoga Books</h2>
+                    <ul>
+                        <li><a href="https://www.goodreads.com/book/show/24941444-light-on-yoga" target="_blank">Light on Yoga by B.K.S. Iyengar</a></li>
+                        <li><a href="https://www.goodreads.com/book/show/15818876-the-heart-of-yoga" target="_blank">The Heart of Yoga by T.K.V. Desikachar</a></li>
+                    </ul>
+                `;
+                playlistSection.innerHTML = `
+                    <h2>Yoga Playlists</h2>
+                    <ul>
+                        <li><a href="https://open.spotify.com/playlist/37i9dQZF1DWZqd5JICZI0u" target="_blank">Yoga & Meditation Playlist on Spotify</a></li>
+                    </ul>
+                `;
+            } else if (category === 'meditation') {
+                videoSection.innerHTML = `
+                    <h2>Recommended Meditation Videos</h2>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZToicYcHIOU" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/inpok4MKVLM" frameborder="0" allowfullscreen></iframe>
+                `;
+                bookSection.innerHTML = `
+                    <h2>Meditation Books</h2>
+                    <ul>
+                        <li><a href="https://www.goodreads.com/book/show/830601.The_Miracle_of_Mindfulness" target="_blank">The Miracle of Mindfulness by Thich Nhat Hanh</a></li>
+                        <li><a href="https://www.goodreads.com/book/show/116540.Breaking_the_Habit_of_Being_Yourself" target="_blank">Breaking the Habit of Being Yourself by Joe Dispenza</a></li>
+                    </ul>
+                `;
+                playlistSection.innerHTML = `
+                    <h2>Meditation Playlists</h2>
+                    <ul>
+                        <li><a href="https://open.spotify.com/playlist/37i9dQZF1DWXLeA8Omikj7" target="_blank">Deep Focus Meditation Playlist on Spotify</a></li>
+                    </ul>
+                `;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Engage with Yoga & Meditation</h1>
+            <p>Select a category to get personalized recommendations for yoga or meditation.</p>
+        </header>
+        
+        <section class="input-section">
+            <label for="category">Choose a Category:</label>
+            <select id="category" onchange="showRecommendations()">
+                <option value="yoga">Yoga</option>
+                <option value="meditation">Meditation</option>
+            </select>
+        </section>
+        
+        <section id="video-section" class="recommendation-section"></section>
+        <section id="book-section" class="recommendation-section"></section>
+        <section id="playlist-section" class="recommendation-section"></section>
+    </div>
+</body>
+</html>

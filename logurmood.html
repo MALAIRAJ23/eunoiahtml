@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Your Mood with NLP</title>
+    <link rel="stylesheet" href="logurmood.css">
+</head>
+<body>
+    <header>
+        <h1>Log Your Mood Using Natural Language</h1>
+    </header>
+
+    <section class="mood-log">
+        <h2>Daily Mood Log</h2>
+        <form id="moodForm">
+            <label for="moodText">How are you feeling today? (Describe your mood):</label>
+            <textarea id="moodText" name="moodText" rows="4" cols="50" placeholder="Write about your feelings here..."></textarea>
+            <br><br>
+
+            <button type="button" onclick="analyzeMood()">Log Mood</button>
+        </form>
+        <br>
+        <div id="moodResult" class="mood-result">
+            <!-- The result of the NLP sentiment analysis will appear here -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mood Monitoring System</p>
+    </footer>
+
+    <script>
+        // Simple mock NLP sentiment analysis (you can replace this with an actual NLP API later)
+        function analyzeMood() {
+            const text = document.getElementById('moodText').value;
+
+            if (!text) {
+                document.getElementById('moodResult').innerText = "Please enter some text to analyze.";
+                return;
+            }
+
+            // Mock sentiment analysis: Basic positive/negative detection based on keyword matching
+            const positiveWords = ['happy', 'great', 'good', 'wonderful', 'fantastic', 'joy'];
+            const negativeWords = ['sad', 'bad', 'terrible', 'anxious', 'angry', 'frustrated'];
+
+            let mood = 'Neutral'; // Default mood
+
+            // Check for positive words
+            for (let word of positiveWords) {
+                if (text.toLowerCase().includes(word)) {
+                    mood = 'Positive 😊';
+                    break;
+                }
+            }
+
+            // Check for negative words
+            for (let word of negativeWords) {
+                if (text.toLowerCase().includes(word)) {
+                    mood = 'Negative 😢';
+                    break;
+                }
+            }
+
+            document.getElementById('moodResult').innerHTML = `Your mood seems to be: <strong>${mood}</strong>`;
+        }
+    </script>
+</body>
+</html>
