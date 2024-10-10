@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="timemanagement.css"> <!-- External CSS -->
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .pomodoro-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            position: relative; /* For tree placement */
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .timer-display {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            background-color: #4caf50;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:active {
+            background-color: #3e8e41;
+        }
+
+        #status {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Tree icon styling */
+        .tree {
+            width: 30px;
+            height: 30px;
+            background-image: url('https://webstockreview.net/images/tree-icon-png-4.png'); /* Replace with actual tree image URL */
+            background-size: cover;
+            position: absolute;
+            bottom: 10px;
+            animation: growTree 1s ease-in-out;
+        }
+
+        /* Animation for growing the trees */
+        @keyframes growTree {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pomodoro-container" id="pomodoro-container">
+        <h1>Pomodoro Timer</h1>
+        <div class="timer-display" id="timer">
+            25:00
+        </div>
+        <div class="controls">
+            <button id="start">Start</button>
+            <button id="reset">Reset</button>
+        </div>
+        <p id="status">Focus Time</p>
+    </div>
+
+    <script>
+    // Variables for timer settings
+    let focusTime = 25 * 60; // 25 minutes in seconds
+    let breakTime = 5 * 60; // 5 minutes in seconds
+    let isRunning = false;
+    let isBreak = false;
+    let currentTime = focusTime;
+    let timerInterval;
+
+    // Function to update the timer display
+    function updateTimer() {
+        const minutes = Math.floor(currentTime / 60);
+        const seconds = currentTime % 60;
+        document.getElementById('timer').textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    }
+
+    // Function to start the Pomodoro timer
+    function startTimer() {
+        if (!isRunning) {
+            isRunning = true;
+            timerInterval = setInterval(() => {
+                currentTime--;
+                updateTimer();
+
+                // Grow a tree every minute
+                if (currentTime % 60 === 0) {
+                    growTree();
+                }
+
+                // Switch to break time when focus time is over
+                if (currentTime <= 0) {
+                    clearInterval(timerInterval);
+                    if (!isBreak) {
+                        document.getElementById('status').textContent = 'Break Time';
+                        currentTime = breakTime;
+                        isBreak = true;
+                    } else {
+                        document.getElementById('status').textContent = 'Focus Time';
+                        currentTime = focusTime;
+                        isBreak = false;
+                    }
+                    startTimer(); // Start the next session automatically
+                }
+            }, 1000);
+        }
+    }
+
+    // Function to reset the Pomodoro timer
+    function resetTimer() {
+        clearInterval(timerInterval);
+        isRunning = false;
+        isBreak = false;
+        currentTime = focusTime;
+        document.getElementById('status').textContent = 'Focus Time';
+        updateTimer();
+        // Clear all trees
+        const pomodoroContainer = document.getElementById('pomodoro-container');
+        const trees = document.querySelectorAll('.tree');
+        trees.forEach(tree => pomodoroContainer.removeChild(tree));
+    }
+
+    // Function to grow a tree (add a tree to the container)
+    function growTree() {
+        const pomodoroContainer = document.getElementById('pomodoro-container');
+        const tree = document.createElement('div');
+        tree.classList.add('tree');
+
+        // Randomly position the tree inside the container
+        const xPos = Math.random() * (pomodoroContainer.offsetWidth - 30);
+        const yPos = Math.random() * (pomodoroContainer.offsetHeight - 30);
+
+        tree.style.left = `${xPos}px`;
+        tree.style.bottom = `${yPos}px`;
+
+        pomodoroContainer.appendChild(tree);
+    }
+
+    // Event listeners for start and reset buttons
+    document.getElementById('start').addEventListener('click', startTimer);
+    document.getElementById('reset').addEventListener('click', resetTimer);
+
+    // Initialize the timer display
+    updateTimer();
+    </script>
+</body>
+</html>

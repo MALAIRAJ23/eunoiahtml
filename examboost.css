@@ -1,0 +1,75 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #a48da6; /* Background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Box container to hold content and center it */
+.box-container {
+    background-color: white; /* White background for the box */
+    padding: 30px;
+    width: 50%;
+    max-width: 500px; /* Limit max width */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for 3D effect */
+    text-align: center;
+}
+
+/* Heading styles */
+h1 {
+    font-size: 36px;
+    color: #a48da6; /* Matches the theme color */
+    margin-bottom: 20px;
+}
+
+/* Paragraph styles */
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Button styling */
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Optional styling for Go Back button */
+button.go-back {
+    margin-top: 20px;
+    background-color: #a48da6;
+}
+
+/* Main container styling */
+#main-container {
+    text-align: center;
+}
+
+/* New container (right) that will appear */
+#new-container {
+    display: none;
+    padding: 20px;
+    border-left: 2px solid #ccc;
+    text-align: left;
+}
+
+/* Show the new container */
+#new-container.show {
+    display: block;
+}

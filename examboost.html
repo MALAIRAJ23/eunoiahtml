@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Boost</title>
+    <link rel="stylesheet" href="examboost.css"> <!-- Optional CSS file for styling -->
+    
+</head>
+<body>
+    <!-- Main container (left) -->
+    <div id="main-container">
+        <h1>Exam Boost</h1>
+        <p>Welcome to the Exam Boost page! Here you will find resources, tips, and tools to help you prepare for your exams and boost your performance.</p>
+        
+        <div>
+            <button id="study-tips-button" tabindex="0">Study Tips and Strategies</button>
+            <button id="time-management-button" tabindex="0">Time Management Tools</button>
+            <button id="focus-exercises-button" tabindex="0">Focus Exercises</button>
+            <button id="sample-tests-button" tabindex="0">Sample Tests and Quizzes</button>
+        </div>
+        
+        <button onclick="window.history.back()">Go Back</button>
+    </div>
+
+    <!-- New container (right) that will appear -->
+    <div id="new-container">
+        <h2>Study Tips and Strategies</h2>
+        <ol>
+            <li><strong>Create a Study Schedule:</strong> Plan your study time in advance and stick to a routine. Break down topics by days and allocate specific hours to each subject. Include short breaks to avoid burnout.</li>
+            <li><strong>Use Active Learning Techniques:</strong> Instead of passively reading, engage with the material by taking notes, asking questions, or teaching someone else. Practice recalling information without looking at your notes (self-testing).</li>
+            <li><strong>Prioritize Important Topics:</strong> Focus on the key concepts that are most likely to appear on the exam. Review any areas where you feel weakest or least confident.</li>
+            <li><strong>Break Down Large Tasks:</strong> Avoid overwhelming yourself by breaking down large subjects into smaller, manageable sections. Tackle one section at a time to make steady progress.</li>
+            <li><strong>Use Study Tools:</strong> Use flashcards, mind maps, and diagrams to organize and visualize information. Create summaries or outlines to condense notes into the most important points.</li>
+            <li><strong>Take Regular Breaks:</strong> Study for 25-30 minutes, then take a 5-10 minute break (Pomodoro Technique). Use breaks to refresh your mind by moving around or relaxing.</li>
+            <li><strong>Practice Past Exams:</strong> Solve past exam papers or practice tests to familiarize yourself with the exam format. This also helps in timing yourself and identifying any knowledge gaps.</li>
+            <li><strong>Stay Organized:</strong> Keep your study area clean and organized to minimize distractions. Use checklists to track topics you’ve studied and what’s left to review.</li>
+            <li><strong>Stay Healthy:</strong> Eat nutritious food, stay hydrated, and get enough sleep. Avoid pulling all-nighters; a well-rested mind performs better.</li>
+            <li><strong>Stay Positive:</strong> Stay confident and trust your preparation. Use positive affirmations and stay motivated to keep stress at bay.</li>
+        </ol>
+    </div>
+
+    <script>
+        // Function to handle the button click for Study Tips
+        document.getElementById('study-tips-button').addEventListener('click', function() {
+            // Move the main container to the left
+            document.getElementById('main-container').classList.add('move-left');
+
+            // Show the new container on the right
+            document.getElementById('new-container').classList.add('show');
+        });
+
+        // Function to handle redirect for Time Management button
+        document.getElementById('time-management-button').addEventListener('click', function() {
+            // Redirect to timemanagement.html
+            window.location.href = 'timemanagement.html';
+        });
+
+        // Add keyboard accessibility for Enter key
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    this.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
