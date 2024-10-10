@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breathing Meditation</title>
+    <link rel="stylesheet" href="focus.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Breathing Meditation</h1>
+        <div class="breathing-box" id="breathingBox">
+            <div class="circle" id="circle">Inhale</div>
+        </div>
+        <div class="controls">
+            <button id="start">Start</button>
+            <button id="stop" disabled>Stop</button>
+        </div>
+        <p class="instructions">Breathe in deeply through your nose and out through your mouth.</p>
+    </div>
+
+    <script>
+        let breathingInterval;
+        const circle = document.getElementById('circle');
+        const startButton = document.getElementById('start');
+        const stopButton = document.getElementById('stop');
+
+        startButton.addEventListener('click', () => {
+            startBreathing();
+            startButton.disabled = true;
+            stopButton.disabled = false;
+        });
+
+        stopButton.addEventListener('click', () => {
+            stopBreathing();
+            startButton.disabled = false;
+            stopButton.disabled = true;
+        });
+
+        function startBreathing() {
+            let inhaleDuration = 4000; // 4 seconds for inhale
+            let exhaleDuration = 6000; // 6 seconds for exhale
+
+            breathingInterval = setInterval(() => {
+                circle.textContent = "Inhale";
+                circle.style.animation = 'inhale 4s forwards';
+                
+                setTimeout(() => {
+                    circle.textContent = "Exhale";
+                    circle.style.animation = 'exhale 6s forwards';
+                }, inhaleDuration);
+            }, inhaleDuration + exhaleDuration);
+        }
+
+        function stopBreathing() {
+            clearInterval(breathingInterval);
+            circle.style.animation = 'none';
+            circle.textContent = "Inhale"; // Reset text
+        }
+    </script>
+</body>
+</html>

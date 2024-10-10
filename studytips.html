@@ -3,27 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exam Boost</title>
-    <link rel="stylesheet" href="examboost.css"> <!-- Optional CSS file for styling -->
+    <title>Study Tips and Strategies</title>
+    <link rel="stylesheet" href="studytips.css">
 </head>
 <body>
-    <!-- Main container (left) -->
-    <div id="main-container">
-        <h1>Exam Boost</h1>
-        <p>Welcome to the Exam Boost page! Here you will find resources, tips, and tools to help you prepare for your exams and boost your performance.</p>
-        
-        <div>
-            <button id="study-tips-button" tabindex="0">Study Tips and Strategies</button>
-            <button id="time-management-button" tabindex="0">Time Management Tools</button>
-            <button id="focus-exercises-button" tabindex="0">Focus Exercises</button>
-        </div>
-        
-        <button onclick="window.history.back()">Go Back</button>
-    </div>
-
-    <!-- New container (right) that will appear -->
-    <div id="new-container">
-        <h2>Study Tips and Strategies</h2>
+    <div class="container">
+        <h1>Study Tips and Strategies</h1>
         <ol>
             <li><strong>Create a Study Schedule:</strong> Plan your study time in advance and stick to a routine. Break down topics by days and allocate specific hours to each subject. Include short breaks to avoid burnout.</li>
             <li><strong>Use Active Learning Techniques:</strong> Instead of passively reading, engage with the material by taking notes, asking questions, or teaching someone else. Practice recalling information without looking at your notes (self-testing).</li>
@@ -36,34 +21,7 @@
             <li><strong>Stay Healthy:</strong> Eat nutritious food, stay hydrated, and get enough sleep. Avoid pulling all-nighters; a well-rested mind performs better.</li>
             <li><strong>Stay Positive:</strong> Stay confident and trust your preparation. Use positive affirmations and stay motivated to keep stress at bay.</li>
         </ol>
+        <button onclick="window.history.back()">Go Back</button>
     </div>
-
-    <script>
-        // Function to handle the button click for Study Tips
-        document.getElementById('study-tips-button').addEventListener('click', function() {
-            // Redirect to studytips.html
-            window.location.href = 'studytips.html';
-        });
-
-        // Function to handle redirect for Time Management button
-        document.getElementById('time-management-button').addEventListener('click', function() {
-            // Redirect to timemanagement.html
-            window.location.href = 'timemanagement.html';
-        });
-
-        document.getElementById('focus-exercises-button').addEventListener('click', function() {
-            // Redirect to focus.html
-            window.location.href = 'focus.html';
-        });
-
-        // Add keyboard accessibility for Enter key
-        document.querySelectorAll('button').forEach(button => {
-            button.addEventListener('keypress', function(event) {
-                if (event.key === 'Enter') {
-                    this.click();
-                }
-            });
-        });
-    </script>
 </body>
 </html>
